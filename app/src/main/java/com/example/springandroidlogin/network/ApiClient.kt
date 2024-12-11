@@ -2,6 +2,7 @@ package com.example.springandroidlogin.network
 
 import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
@@ -160,4 +161,35 @@ class ApiClient private constructor(context: Context) {
         requestQueue.add(stringRequest)
     }
     //END OF IS TOKEN EXPIRED
+
+    fun fetchAuthenticatedData(
+        token: String,
+        endpoint : String,
+        onSuccess: (String) -> Unit,
+        onError: (String) -> Unit
+    ) {
+        val stringRequest = object : StringRequest(
+            Method.GET, if (endpoint=="admin"){apiLinkHelper.AdminTestApiUri()}else{ apiLinkHelper.UserTestApiUri()},
+            { response ->
+                Log.e("ApiClient", "Authenticated Response: $response")
+                onSuccess(response)
+            },
+            { error ->
+                if (error.networkResponse != null) {
+                    val errorResponse = String(error.networkResponse.data)
+                    Log.e("ApiClient", "Error Response: $errorResponse")
+                    onError(errorResponse)
+                } else {
+                    Log.e("ApiClient", "Unknown Error: ${error.message}")
+                    onError(error.message ?: "Unknown error occurred.")
+                }
+            }
+        ) {
+            override fun getHeaders(): Map<String, String> {
+                return mapOf("Authorization" to "Bearer $token")
+            }
+        }
+
+        requestQueue.add(stringRequest)
+    }
 }

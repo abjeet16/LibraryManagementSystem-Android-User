@@ -192,4 +192,5 @@ class ApiClient private constructor(context: Context) {
 
         requestQueue.add(stringRequest)
     }
+    //END OF TEST
 }

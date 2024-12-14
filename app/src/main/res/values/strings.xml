@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SpringAndroidLogin</string>
+    <string name="app_name">Library Management System</string>
     <string name="welcome_msg">Welcome User</string>
 
     <!-- For Sign Up Page / Activity -->

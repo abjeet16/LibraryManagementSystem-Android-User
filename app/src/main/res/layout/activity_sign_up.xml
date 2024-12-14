@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/alt_act_img" />
+        app:srcCompat="@drawable/main_image" />
 
     <TextView
         android:id="@+id/textView2"
@@ -74,6 +74,16 @@
             android:background="@drawable/input_text_field_styling"
             android:layout_height="55dp"
             android:hint="Email"/>
+
+        <EditText
+            android:id="@+id/phone_number"
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:inputType="number"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/input_text_field_styling"
+            android:layout_height="55dp"
+            android:hint="mobile number"/>
 
         <LinearLayout
             android:layout_width="match_parent"

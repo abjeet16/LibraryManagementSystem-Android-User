@@ -60,7 +60,8 @@ class ApiClient private constructor(context: Context) {
                     "first_name" to user.firstName,
                     "last_name" to user.lastName,
                     "email" to user.email,
-                    "password" to user.password
+                    "password" to user.password,
+                    "phone_number" to user.phone_number
                 )
             }
         }

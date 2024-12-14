@@ -1,9 +1,11 @@
 package com.example.springandroidlogin.activitys.Auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.springandroidlogin.DataModules.UserRegister
+import com.example.springandroidlogin.activitys.MainActivity
 import com.example.springandroidlogin.databinding.ActivitySignUpBinding
 import com.example.springandroidlogin.helpers.StringHelper
 import com.example.springandroidlogin.network.ApiClient
@@ -31,26 +33,20 @@ class SignUp : AppCompatActivity() {
             binding.firstName.text.toString().trim(),
             binding.lastName.text.toString().trim(),
             binding.email.text.toString().trim(),
-            binding.password.text.toString().trim()
+            binding.password.text.toString().trim(),
+            binding.phoneNumber.text.toString()
         )
 
         ApiClient.getInstance(this).registerUser(user,
             { response ->
                 Toast.makeText(this, response, Toast.LENGTH_LONG).show()
-                clearFormFields()
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
             },
             { error ->
                 Toast.makeText(this, "Error: $error", Toast.LENGTH_LONG).show()
             }
         )
-    }
-
-    private fun clearFormFields() {
-        binding.firstName.text = null
-        binding.lastName.text = null
-        binding.email.text = null
-        binding.password.text = null
-        binding.confirm.text = null
     }
 
     fun validateAllEditText(): Boolean {

@@ -21,5 +21,5 @@ class ApiLinkHelper {
     fun UserTestApiUri(): String {
         return BASE_URL + "test/user"
     }
-    // END OF IS TOKEN EXPIRED API URI METHOD.
+    // END OF IS TOKEN EXPIRED API URI METHOD.//
 }

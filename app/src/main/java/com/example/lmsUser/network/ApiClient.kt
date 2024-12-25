@@ -3,15 +3,20 @@ package com.example.lmsUser.network
 import android.content.Context
 import android.util.Log
 import com.android.volley.RequestQueue
+import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.lmsUser.DataModules.Book
+import com.example.lmsUser.DataModules.UserProfile
 import com.example.lmsUser.DataModules.UserRegister
+import com.example.lmsUser.DataModules.YourIssuedBook
 import com.example.lmsUser.DataModules.userLogin.UserLoginRequest
 import com.example.lmsUser.DataModules.userLogin.UserLoginResponse
 import com.example.lmsUser.helpers.ApiLinkHelper
 import com.google.gson.Gson
 import org.json.JSONObject
+import java.lang.reflect.Method
 
 class ApiClient private constructor(context: Context) {
     private val requestQueue: RequestQueue = Volley.newRequestQueue(context.applicationContext)
@@ -161,6 +166,130 @@ class ApiClient private constructor(context: Context) {
         requestQueue.add(stringRequest)
     }
     //END OF IS TOKEN EXPIRED
+
+    fun getUserProfile(
+        token: String,
+        onSuccess: (UserProfile) -> Unit,
+        onError: (String) -> Unit
+    ) {
+        val jsonObjectRequest = object : JsonObjectRequest(
+            Method.GET,  // The method type, GET in this case
+            apiLinkHelper.getUserProfileApiUri(),  // Your API URL
+            null,  // No body for GET requests
+            { response ->  // Success listener
+                // Parse the response
+                try {
+                    val userProfile = Gson().fromJson(response.toString(), UserProfile::class.java)
+                    onSuccess(userProfile)
+                } catch (e: Exception) {
+                    onError("Failed to parse the server response.")
+                }
+            },
+            { error ->  // Error listener
+                if (error.networkResponse != null) {
+                    val errorResponse = String(error.networkResponse.data)
+                    Log.e("ApiClient", "Error Response: $errorResponse")
+                    onError(errorResponse)
+                } else {
+                    Log.e("ApiClient", "Unknown Error: ${error.message}")
+                    onError(error.message ?: "Unknown error occurred.")
+                }
+            }
+        ) {
+            // Add Authorization header with Bearer token
+            override fun getHeaders(): Map<String, String> {
+                val headers = mutableMapOf<String, String>()
+                headers["Authorization"] = "Bearer $token"
+                return headers
+            }
+        }
+
+        requestQueue.add(jsonObjectRequest) // Add the request to the queue
+    }
+
+    fun fetchBooks(
+        token: String,
+        onSuccess: (List<Book>) -> Unit,
+        onError: (String) -> Unit
+    ) {
+        val jsonArrayRequest = object : JsonArrayRequest(
+            Method.GET,  // The method type, GET in this case
+            apiLinkHelper.getAllBooksApiUri(),  // Your API URL
+            null,  // No body for GET requests
+            { response ->  // Success listener
+                // Parse the response
+                val books = Gson().fromJson(response.toString(), Array<Book>::class.java).toList()
+                onSuccess(books)
+            },
+            { error ->  // Error listener
+                if (error.networkResponse != null) {
+                    val errorResponse = String(error.networkResponse.data)
+                    Log.e("ApiClient", "Error Response: $errorResponse")
+                    onError(errorResponse)
+                } else {
+                    Log.e("ApiClient", "Unknown Error: ${error.message}")
+                    onError(error.message ?: "Unknown error occurred.")
+                }
+            }
+        ) {
+            // Add Authorization header with Bearer token
+            override fun getHeaders(): Map<String, String> {
+                val headers = mutableMapOf<String, String>()
+                headers["Authorization"] = "Bearer $token"
+                return headers
+            }
+        }
+
+// Add the request to the queue
+        requestQueue.add(jsonArrayRequest)
+    }
+
+    fun yourIssuedBooks(
+        token: String,
+        onSuccess: (List<YourIssuedBook>) -> Unit,
+        onError: (String) -> Unit
+    ) {
+        val jsonArrayRequest = object : JsonArrayRequest(
+            Method.GET,  // The method type, GET in this case
+            apiLinkHelper.yourIssuedBooksApiUri(),  // API URL (ensure your API requires the bookId)
+            null,  // No body for GET requests
+            { response ->  // Success listener
+                try {
+                    // Parse the response into a list of YourIssuedBook
+                    val books = Gson().fromJson(response.toString(), Array<YourIssuedBook>::class.java).toList()
+                    onSuccess(books)
+                } catch (e: Exception) {
+                    Log.e("ApiClient", "Error parsing response: ${e.message}")
+                    onError("Error parsing response")
+                }
+            },
+            { error ->  // Error listener
+                if (error.networkResponse != null) {
+                    val errorResponse = String(error.networkResponse.data)
+                    Log.e("ApiClient", "Error Response: $errorResponse")
+                    onError(errorResponse)
+                } else {
+                    Log.e("ApiClient", "Unknown Error: ${error.message}")
+                    onError(error.message ?: "Unknown error occurred.")
+                }
+            }
+        ) {
+            // Add Authorization header with Bearer token
+            override fun getHeaders(): Map<String, String> {
+                val headers = mutableMapOf<String, String>()
+                headers["Authorization"] = "Bearer $token"
+                return headers
+            }
+        }
+        requestQueue.add(jsonArrayRequest)
+    }
+
+
+
+
+
+
+
 
     fun fetchAuthenticatedData(
         token: String,

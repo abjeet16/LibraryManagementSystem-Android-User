@@ -16,6 +16,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activitys.IssuedBookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.AllBooksActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".activitys.HomeActivity"
             android:exported="false" />
         <activity

@@ -15,6 +15,26 @@ class ApiLinkHelper {
     fun isTokenExpiredApiUri(): String {
         return BASE_URL + "auth/is_token_expired"
     }
+
+    fun getUserProfileApiUri():String{
+        return BASE_URL + "user/my_profile"
+    }
+
+    fun getAllBooksApiUri(): String {
+        return BASE_URL + "books"
+    }
+
+    fun yourIssuedBooksApiUri():String{
+        return BASE_URL + "books/my-issues"
+    }
+
+
+
+
+
+
+
+
     fun AdminTestApiUri(): String {
         return BASE_URL + "test/admin"
     }

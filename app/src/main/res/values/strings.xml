@@ -6,4 +6,10 @@
     <string name="go_to_sign_in">Already Have and account? Sign In</string>
     <!-- For Sign In Page / Activity -->
     <string name="go_to_sign_up">Don\'t Have and account? Sign Up</string>
+
+    <string-array name="search_options">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </string-array>
 </resources>

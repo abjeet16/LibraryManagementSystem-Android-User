@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,32 +8,108 @@
     android:layout_height="match_parent"
     tools:context=".activitys.HomeActivity">
 
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="100dp"
+    <!-- View Profile Section -->
+    <ImageView
+        android:id="@+id/view_profile_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/profile"
+        android:contentDescription="View Profile"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/view_profile_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Profile"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/view_profile_image"
+        app:layout_constraintStart_toStartOf="@id/view_profile_image"
+        app:layout_constraintEnd_toEndOf="@id/view_profile_image"
+        android:layout_marginTop="8dp" />
+
+    <!-- View All Books Section -->
+    <ImageView
+        android:id="@+id/view_all_books_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/all_books"
+        android:contentDescription="View All Books"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/view_profile_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/view_all_books_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View All Books"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/view_all_books_image"
+        app:layout_constraintStart_toStartOf="@id/view_all_books_image"
+        app:layout_constraintEnd_toEndOf="@id/view_all_books_image"
+        android:layout_marginTop="8dp" />
+
+    <!-- View Issued Books Section -->
+    <ImageView
+        android:id="@+id/view_issued_books_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/all_issued"
+        android:contentDescription="View Issued Books"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/view_all_books_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/view_issued_books_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Issued Books"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/view_issued_books_image"
+        app:layout_constraintStart_toStartOf="@id/view_issued_books_image"
+        app:layout_constraintEnd_toEndOf="@id/view_issued_books_image"
+        android:layout_marginTop="8dp" />
+
+    <!-- Log Out Section -->
+    <ImageView
+        android:id="@+id/logout_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/log_out"
+        android:contentDescription="Log Out"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/view_issued_books_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/logout_label"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Log Out"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/adminRequest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ADMIN"
-        app:layout_constraintEnd_toEndOf="@+id/logout"
-        app:layout_constraintStart_toStartOf="@+id/logout"
-        app:layout_constraintTop_toBottomOf="@+id/logout" />
-
-    <Button
-        android:id="@+id/userRequest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="USER"
-        app:layout_constraintEnd_toEndOf="@+id/adminRequest"
-        app:layout_constraintStart_toStartOf="@+id/adminRequest"
-        app:layout_constraintTop_toBottomOf="@+id/adminRequest" />
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/logout_image"
+        app:layout_constraintStart_toStartOf="@id/logout_image"
+        app:layout_constraintEnd_toEndOf="@id/logout_image"
+        android:layout_marginTop="8dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

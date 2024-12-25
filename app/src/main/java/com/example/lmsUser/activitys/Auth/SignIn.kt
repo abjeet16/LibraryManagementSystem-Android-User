@@ -1,15 +1,15 @@
-package com.example.springandroidlogin.activitys.Auth
+package com.example.lmsUser.activitys.Auth
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.springandroidlogin.DataModules.userLogin.UserLoginRequest
-import com.example.springandroidlogin.DataModules.userLogin.UserLoginResponse
-import com.example.springandroidlogin.activitys.MainActivity
-import com.example.springandroidlogin.databinding.ActivitySignInBinding
-import com.example.springandroidlogin.network.ApiClient
+import com.example.lmsUser.DataModules.userLogin.UserLoginRequest
+import com.example.lmsUser.DataModules.userLogin.UserLoginResponse
+import com.example.lmsUser.activitys.MainActivity
+import com.example.lmsUser.databinding.ActivitySignInBinding
+import com.example.lmsUser.network.ApiClient
 
 class SignIn : AppCompatActivity() {
     private val binding by lazy {

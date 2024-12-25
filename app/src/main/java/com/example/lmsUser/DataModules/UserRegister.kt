@@ -1,4 +1,4 @@
-package com.example.springandroidlogin.DataModules
+package com.example.lmsUser.DataModules
 
 data class UserRegister(
     val firstName: String,

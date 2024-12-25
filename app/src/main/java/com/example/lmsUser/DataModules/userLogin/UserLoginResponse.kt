@@ -1,4 +1,4 @@
-package com.example.springandroidlogin.DataModules.userLogin
+package com.example.lmsUser.DataModules.userLogin
 
 
 import com.google.gson.annotations.SerializedName

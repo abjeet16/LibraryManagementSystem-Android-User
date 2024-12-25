@@ -1,4 +1,4 @@
-package com.example.springandroidlogin.helpers
+package com.example.lmsUser.helpers
 
 class ApiLinkHelper {
     // MAIN BASE API URI:

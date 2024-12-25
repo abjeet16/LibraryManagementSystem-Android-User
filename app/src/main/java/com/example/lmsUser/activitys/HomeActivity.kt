@@ -1,16 +1,12 @@
-package com.example.springandroidlogin.activitys
+package com.example.lmsUser.activitys
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.springandroidlogin.R
-import com.example.springandroidlogin.databinding.ActivityHomeBinding
-import com.example.springandroidlogin.network.ApiClient
+import com.example.lmsUser.databinding.ActivityHomeBinding
+import com.example.lmsUser.network.ApiClient
 
 class HomeActivity : AppCompatActivity() {
     private val binding by lazy {

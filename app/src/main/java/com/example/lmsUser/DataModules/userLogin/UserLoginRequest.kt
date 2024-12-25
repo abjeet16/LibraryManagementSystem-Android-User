@@ -1,4 +1,4 @@
-package com.example.springandroidlogin.DataModules.userLogin
+package com.example.lmsUser.DataModules.userLogin
 
 data class UserLoginRequest(
     val email: String,

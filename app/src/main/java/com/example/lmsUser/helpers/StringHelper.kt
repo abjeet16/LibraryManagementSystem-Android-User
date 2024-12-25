@@ -1,4 +1,4 @@
-package com.example.springandroidlogin.helpers
+package com.example.lmsUser.helpers
 
 /**
  * Utility class for common string validation tasks such as email validation

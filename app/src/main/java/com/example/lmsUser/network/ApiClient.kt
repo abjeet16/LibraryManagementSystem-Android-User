@@ -1,16 +1,15 @@
-package com.example.springandroidlogin.network
+package com.example.lmsUser.network
 
 import android.content.Context
 import android.util.Log
-import android.widget.Toast
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.springandroidlogin.DataModules.UserRegister
-import com.example.springandroidlogin.DataModules.userLogin.UserLoginRequest
-import com.example.springandroidlogin.DataModules.userLogin.UserLoginResponse
-import com.example.springandroidlogin.helpers.ApiLinkHelper
+import com.example.lmsUser.DataModules.UserRegister
+import com.example.lmsUser.DataModules.userLogin.UserLoginRequest
+import com.example.lmsUser.DataModules.userLogin.UserLoginResponse
+import com.example.lmsUser.helpers.ApiLinkHelper
 import com.google.gson.Gson
 import org.json.JSONObject
 

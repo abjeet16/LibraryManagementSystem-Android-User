@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.springandroidlogin"
+    namespace = "com.example.lmsUser"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.springandroidlogin"
+        applicationId = "com.example.lmsUser"
         minSdk = 26
         targetSdk = 35
         versionCode = 1

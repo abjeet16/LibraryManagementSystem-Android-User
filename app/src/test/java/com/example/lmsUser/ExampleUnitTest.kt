@@ -1,4 +1,4 @@
-package com.example.springandroidlogin
+package com.example.lmsUser
 
 import org.junit.Test
 

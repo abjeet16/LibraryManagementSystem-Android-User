@@ -1,4 +1,4 @@
-package com.example.springandroidlogin
+package com.example.lmsUser
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
